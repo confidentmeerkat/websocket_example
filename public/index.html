@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>WebSocket Demo</h1>
+      <div class="status-bar">
+        <span class="status" id="status">
+          <span class="status-indicator disconnected"></span>
+          Disconnected
+        </span>
+        <span class="clients-count" id="clientsCount">Clients: 0</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="chat-container">
+        <div class="messages" id="messages">
+          <div class="message system">
+            <span class="timestamp"></span>
+            <span class="content">Click "Connect" to start...</span>
+          </div>
+        </div>
+        
+        <div class="input-container">
+          <input 
+            type="text" 
+            id="messageInput" 
+            placeholder="Type a message..." 
+            disabled
+            maxlength="500"
+          >
+          <button id="sendBtn" disabled>Send</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="connectBtn" class="btn-primary">Connect</button>
+        <button id="disconnectBtn" class="btn-danger" disabled>Disconnect</button>
+        <button id="clearBtn" class="btn-secondary">Clear Messages</button>
+      </div>
+
+      <div class="info-panel">
+        <h3>Connection Info</h3>
+        <div class="info-item">
+          <label>WebSocket URL:</label>
+          <span id="wsUrl">-</span>
+        </div>
+        <div class="info-item">
+          <label>Ready State:</label>
+          <span id="readyState">-</span>
+        </div>
+        <div class="info-item">
+          <label>Messages Sent:</label>
+          <span id="messagesSent">0</span>
+        </div>
+        <div class="info-item">
+          <label>Messages Received:</label>
+          <span id="messagesReceived">0</span>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Simple WebSocket Server & Client Demo</p>
+    </footer>
+  </div>
+
+  <script src="client.js"></script>
+</body>
+</html>
